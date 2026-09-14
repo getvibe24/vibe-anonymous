@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <title>Vibe — Find Your Nearby Vibe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#home">
+      <span class="brand-mark">V</span>
+      <span>vibe</span>
+    </a>
+
+    <nav>
+      <a href="#discover">Discover</a>
+      <a href="#signals">Signals</a>
+      <a href="#profile">Profile</a>
+    </nav>
+
+    <button class="nav-profile" id="openProfile">
+      <span class="avatar">D</span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          Nearby, anonymously
+        </div>
+
+        <h1>
+          Find people<br>
+          who <span>get your vibe.</span>
+        </h1>
+
+        <p>
+          Discover shared interests around you without exposing
+          your exact location. No awkward searching. Just mutual vibes.
+        </p>
+
+        <div class="hero-actions">
+          <button class="primary-btn" id="startDiscover">
+            Start discovering
+            <span>→</span>
+          </button>
+
+          <button class="ghost-btn" id="learnMore">
+            How Vibe works
+          </button>
+        </div>
+
+        <div class="privacy-note">
+          <span>⌁</span>
+          Your exact location is never shown
+        </div>
+      </div>
+
+      <div class="hero-orbit">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="center-vibe">
+          <div class="center-icon">✦</div>
+          <strong>your vibe</strong>
+          <small>is waiting nearby</small>
+        </div>
+
+        <div class="floating-card card-a">
+          <div class="mini-avatar a1">A</div>
+          <div>
+            <strong>Music</strong>
+            <small>nearby interest</small>
+          </div>
+          <span class="signal-dot"></span>
+        </div>
+
+        <div class="floating-card card-b">
+          <div class="mini-avatar a2">R</div>
+          <div>
+            <strong>Photography</strong>
+            <small>shared interest</small>
+          </div>
+          <span class="signal-dot"></span>
+        </div>
+
+        <div class="floating-card card-c">
+          <div class="mini-avatar a3">K</div>
+          <div>
+            <strong>Tech</strong>
+            <small>mutual vibe</small>
+          </div>
+          <span class="signal-dot"></span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- DISCOVER -->
+    <section class="section discover-section" id="discover">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-label">DISCOVER</span>
+          <h2>What's your vibe today?</h2>
+          <p>Pick what you're into. We'll handle the rest.</p>
+        </div>
+
+        <div class="zone-selector">
+          <span class="location-icon">⌖</span>
+          <div>
+            <small>Discovery zone</small>
+            <strong id="zoneName">Campus Area</strong>
+          </div>
+          <button id="changeZone">⌄</button>
+        </div>
+      </div>
+
+      <div class="interest-grid" id="interestGrid">
+
+        <button class="interest-card" data-interest="Music">
+          <span class="interest-icon">♫</span>
+          <span>
+            <strong>Music</strong>
+            <small>Artists · concerts · playlists</small>
+          </span>
+          <i>+</i>
+        </button>
+
+        <button class="interest-card" data-interest="Gaming">
+          <span class="interest-icon">◈</span>
+          <span>
+            <strong>Gaming</strong>
+            <small>Games · esports · co-op</small>
+          </span>
+          <i>+</i>
+        </button>
+
+        <button class="interest-card" data-interest="Technology">
+          <span class="interest-icon">⌘</span>
+          <span>
+            <strong>Technology</strong>
+            <small>AI · coding · gadgets</small>
+          </span>
+          <i>+</i>
+        </button>
+
+        <button class="interest-card" data-interest="Photography">
+          <span class="interest-icon">◉</span>
+          <span>
+            <strong>Photography</strong>
+            <small>Camera · editing · moments</small>
+          </span>
+          <i>+</i>
+        </button>
+
+        <button class="interest-card" data-interest="Fitness">
+          <span class="interest-icon">△</span>
+          <span>
+            <strong>Fitness</strong>
+            <small>Training · running · sports</small>
+          </span>
+          <i>+</i>
+        </button>
+
+        <button class="interest-card" data-interest="Movies">
+          <span class="interest-icon">▹</span>
+          <span>
+            <strong>Movies</strong>
+            <small>Films · series · cinema</small>
+          </span>
+          <i>+</i>
+        </button>
+
+        <button class="interest-card" data-interest="Startups">
+          <span class="interest-icon">↗</span>
+          <span>
+            <strong>Startups</strong>
+            <small>Ideas · business · building</small>
+          </span>
+          <i>+</i>
+        </button>
+
+        <button class="interest-card" data-interest="Art">
+          <span class="interest-icon">✦</span>
+          <span>
+            <strong>Art & Design</strong>
+            <small>Design · drawing · creativity</small>
+          </span>
+          <i>+</i>
+        </button>
+
+      </div>
+
+      <div class="discover-bar">
+        <div>
+          <span class="selected-count" id="selectedCount">0</span>
+          <span>interests selected</span>
+        </div>
+
+        <button class="primary-btn small" id="findVibes">
+          Find my vibes <span>→</span>
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- MATCHES -->
+    <section class="section matches-section" id="signals">
+
+      <div class="section-heading compact">
+        <div>
+          <span class="section-label">SIGNALS</span>
+          <h2>Potential vibes nearby</h2>
+          <p>People remain anonymous until the interest is mutual.</p>
+        </div>
+
+        <button class="filter-btn" id="refreshSignals">↻ Refresh</button>
+      </div>
+
+      <div class="people-grid" id="peopleGrid">
+
+        <article class="person-card">
+          <div class="person-top">
+            <div class="person-avatar avatar-purple">A</div>
+            <span class="distance">~ 0.4 km zone</span>
+          </div>
+
+          <div class="person-info">
+            <h3>Anonymous A</h3>
+            <p>Someone nearby exploring similar interests.</p>
+          </div>
+
+          <div class="tags">
+            <span>Music</span>
+            <span>Photography</span>
+          </div>
+
+          <button class="signal-btn" data-person="A">
+            Send a signal <span>↗</span>
+          </button>
+        </article>
+
+
+        <article class="person-card featured-person">
+          <div class="match-badge">HIGH MATCH</div>
+
+          <div class="person-top">
+            <div class="person-avatar avatar-blue">R</div>
+            <span class="distance">~ 0.7 km zone</span>
+          </div>
+
+          <div class="person-info">
+            <h3>Anonymous R</h3>
+            <p>Multiple interests line up with your current vibe.</p>
+          </div>
+
+          <div class="tags">
+            <span>Technology</span>
+            <span>Gaming</span>
+            <span>AI</span>
+          </div>
+
+          <button class="signal-btn" data-person="R">
+            Send a signal <span>↗</span>
+          </button>
+        </article>
+
+
+        <article class="person-card">
+          <div class="person-top">
+            <div class="person-avatar avatar-green">K</div>
+            <span class="distance">~ 1.1 km zone</span>
+          </div>
+
+          <div class="person-info">
+            <h3>Anonymous K</h3>
+            <p>Exploring the same interests around your zone.</p>
+          </div>
+
+          <div class="tags">
+            <span>Startups</span>
+            <span>Art & Design</span>
+          </div>
+
+          <button class="signal-btn" data-person="K">
+            Send a signal <span>↗</span>
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="section how-section">
+
+      <div class="section-heading centered">
+        <span class="section-label">THE VIBE FLOW</span>
+        <h2>Simple by design.</h2>
+        <p>No follower counts. No public location. No pressure.</p>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <span class="step-number">01</span>
+          <div class="step-icon">✦</div>
+          <h3>Choose your vibe</h3>
+          <p>Select the interests you're genuinely into right now.</p>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+          <span class="step-number">02</span>
+          <div class="step-icon">⌖</div>
+          <h3>Discover nearby</h3>
+          <p>See anonymous people inside a broad discovery zone.</p>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+          <span class="step-number">03</span>
+          <div class="step-icon">∞</div>
+          <h3>Match mutually</h3>
+          <p>A connection opens only when both sides signal interest.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PROFILE -->
+    <section class="section profile-section" id="profile">
+
+      <div class="profile-card">
+
+        <div class="profile-head">
+          <div class="profile-avatar">D</div>
+
+          <div>
+            <span class="section-label">YOUR PROFILE</span>
+            <h2>Anonymous Explorer</h2>
+            <p>Visible only through shared interests</p>
+          </div>
+
+          <button class="edit-btn" id="editProfile">Edit</button>
+        </div>
+
+        <div class="profile-divider"></div>
+
+        <div class="profile-columns">
+
+          <div>
+            <small class="profile-label">YOUR INTERESTS</small>
+            <div class="profile-tags" id="profileTags">
+              <span>Technology</span>
+              <span>Music</span>
+            </div>
+          </div>
+
+          <div>
+            <small class="profile-label">DISCOVERY MODE</small>
+            <div class="mode-toggle">
+              <span class="mode-status"></span>
+              <strong>Active</strong>
+              <small>Discoverable nearby</small>
+              <button id="toggleMode"></button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SAFETY -->
+    <section class="section safety-section">
+
+      <div class="safety-copy">
+        <span class="section-label">PRIVACY FIRST</span>
+        <h2>Vibe without<br>giving yourself away.</h2>
+        <p>
+          Vibe is designed around controlled discovery. Your exact
+          location, personal contact details and private information
+          aren't part of the discovery experience.
+        </p>
+      </div>
+
+      <div class="safety-panel">
+
+        <div class="safety-item">
+          <span>⌖</span>
+          <div>
+            <strong>Broad zones</strong>
+            <p>Only approximate discovery areas are used.</p>
+          </div>
+          <b>✓</b>
+        </div>
+
+        <div class="safety-item">
+          <span>◌</span>
+          <div>
+            <strong>Anonymous by default</strong>
+            <p>Your identity stays behind your chosen profile.</p>
+          </div>
+          <b>✓</b>
+        </div>
+
+        <div class="safety-item">
+          <span>⊘</span>
+          <div>
+            <strong>Control anytime</strong>
+            <p>Pause discovery or remove a connection whenever you want.</p>
+          </div>
+          <b>✓</b>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="footer-brand">
+      <span class="brand-mark">V</span>
+      <strong>vibe</strong>
+    </div>
+
+    <p>Find your people. Keep your privacy.</p>
+
+    <div class="footer-links">
+      <button id="privacyBtn">Privacy</button>
+      <button id="safetyBtn">Safety</button>
+    </div>
+  </footer>
+
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✦</span>
+    <div>
+      <strong id="toastTitle">Done</strong>
+      <p id="toastText">Action completed.</p>
+    </div>
+  </div>
+
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+
+    <div class="modal" id="modal">
+
+      <button class="modal-close" id="closeModal">×</button>
+
+      <div class="modal-symbol">✦</div>
+
+      <h2 id="modalTitle">Choose your zone</h2>
+      <p id="modalText">
+        Pick a broad area. Vibe won't reveal your exact location.
+      </p>
+
+      <div class="zone-options">
+        <button class="zone-option active" data-zone="Campus Area">
+          <span>⌖</span>
+          <div>
+            <strong>Campus Area</strong>
+            <small>Broad nearby zone</small>
+          </div>
+          <b>✓</b>
+        </button>
+
+        <button class="zone-option" data-zone="City Area">
+          <span>◎</span>
+          <div>
+            <strong>City Area</strong>
+            <small>Wider discovery radius</small>
+          </div>
+          <b>✓</b>
+        </button>
+
+        <button class="zone-option" data-zone="Manual Zone">
+          <span>＋</span>
+          <div>
+            <strong>Choose manually</strong>
+            <small>Set your own broad zone</small>
+          </div>
+          <b>✓</b>
+        </button>
+      </div>
+
+      <button class="primary-btn modal-btn" id="confirmZone">
+        Save discovery zone <span>→</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
